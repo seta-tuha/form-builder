@@ -55,7 +55,7 @@ export default function FormBuilder({
           ))
         }
       </div>
-      <div>
+      <div className="form-configuration">
         <FormSettings
           onChange={onUpdateForm}
           {...form.definition[form.selected]}
