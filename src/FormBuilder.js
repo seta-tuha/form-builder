@@ -3,6 +3,7 @@ import Block, { blockTypes } from './components/blocks';
 import { useDrop } from 'react-dnd';
 import PreviewWrapper from './components/preview/PreviewWrapper';
 import BlockItem from './components/preview/items';
+import FormSettings from './components/configuration';
 import FormTypes from './FormTypes';
 import './FormBuilder.css';
 
@@ -24,6 +25,11 @@ export default function FormBuilder({
       }
     }
   })
+
+  const onUpdateForm = ({ name, value }) => updateBlock(form.selected, {
+    ...form.definition[form.selected],
+    [name]: value
+  });
 
   return (
     <div className="form-builder">
@@ -49,7 +55,12 @@ export default function FormBuilder({
           ))
         }
       </div>
-      <div>Settings</div>
+      <div>
+        <FormSettings
+          onChange={onUpdateForm}
+          {...form.definition[form.selected]}
+        />
+      </div>
     </div>
   )
 }

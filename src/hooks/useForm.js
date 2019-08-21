@@ -36,11 +36,11 @@ function swapBlock(from, to) {
   }
 }
 
-function updateBlock(name, data) {
+function updateBlock(index, data) {
   return {
     type: UPDATE_BLOCK,
     payload: {
-      name,
+      index,
       data
     }
   }
@@ -90,8 +90,8 @@ function formReducer(state, action) {
     case UPDATE_BLOCK:
       return {
         ...state,
-        definition: state.definition.map(data => {
-          if (data.name !== action.payload.name) {
+        definition: state.definition.map((data, index) => {
+          if (index !== action.payload.index) {
             return data;
           }
           return action.payload.data;
