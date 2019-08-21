@@ -28,6 +28,7 @@ function App() {
       type: 'checkBox'
     }
   ]);
+  console.log(form.definition)
   return (
     <DndProvider backend={HTML5Backend}>
       <DragLayer />

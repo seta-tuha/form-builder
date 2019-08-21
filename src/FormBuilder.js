@@ -12,6 +12,7 @@ export default function FormBuilder({
   swapBlock,
   updateBlock,
   removeBlock,
+  selectBlock
 }) {
 
   const [_, drop] = useDrop({
@@ -41,6 +42,7 @@ export default function FormBuilder({
               swapBlock={swapBlock}
               updateBlock={updateBlock}
               removeBlock={removeBlock}
+              selectBlock={selectBlock}
             >
               <BlockItem type={block.type} name={block.name} />
             </PreviewWrapper>
