@@ -1,0 +1,20 @@
+.block-container {
+	height: 80px;
+	width: 100px;
+	border: 1px solid #DADCDF;
+	border-radius: 4px;
+  background-color: #FFFFFF;
+  color: #5C636B;
+  font-size: 12px;
+  display: flex;
+  flex-flow: column;
+  justify-items: center;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 8px;
+}
+
+.block-container > p {
+  margin: 0;
+}

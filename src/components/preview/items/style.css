@@ -1,0 +1,10 @@
+.item-container {
+  width: 200px;
+  height: 60px;
+  background-color: tomato;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+  padding-left: 8px;
+}

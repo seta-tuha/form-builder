@@ -1,0 +1,8 @@
+.form-builder {
+  display: flex;
+}
+
+.form-preview-container {
+  width: 60%;
+  min-width: 500px;
+}
