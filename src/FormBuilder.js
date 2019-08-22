@@ -5,6 +5,7 @@ import PreviewWrapper from './components/preview/PreviewWrapper';
 import BlockItems from './components/preview/items';
 import FormSettings from './components/configuration';
 import FormTypes from './FormTypes';
+import { generateSchema, generateState } from './utils';
 import './FormBuilder.css';
 
 export default function FormBuilder({
@@ -42,7 +43,6 @@ export default function FormBuilder({
         {
           form.definition.map((block, index) => {
           const BlockItem = BlockItems[block.type];
-          console.log(block);
             return (
               <PreviewWrapper
                 index={index}
@@ -53,11 +53,16 @@ export default function FormBuilder({
                 removeBlock={removeBlock}
                 selectBlock={selectBlock}
               >
-                <BlockItem block={block} name={block.name} />
+                <BlockItem {...block} />
               </PreviewWrapper>
             )
           })
         }
+        <pre>
+          {
+            JSON.stringify(generateSchema(form.definition), null, 2)
+          }
+        </pre>
       </div>
       <div className="form-configuration">
         <FormSettings

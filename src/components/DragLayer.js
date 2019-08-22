@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDragLayer } from 'react-dnd'
 import FormTypes from '../FormTypes';
-import BlockPreview from './preview/items';
+import blockPreview from './preview/items';
 
 const layerStyles = {
   position: 'fixed',
@@ -43,8 +43,10 @@ const CustomDragLayer = props => {
   function renderItem() {
     switch (itemType) {
       case FormTypes.type:
-        if (item.isBlock)
-          return <BlockPreview type={item.id} />
+        if (item.isBlock) {
+          const BlockPreview = blockPreview[item.id];
+          return <BlockPreview label={item.id} />
+        }
         return null;
       default:
         return null

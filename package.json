@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^12.3.1",
     "@material/react-checkbox": "^0.15.0",
     "@material/react-material-icon": "^0.15.0",
+    "@material/react-radio": "^0.15.0",
     "@material/react-select": "^0.15.0",
     "@material/react-text-field": "^0.15.0",
     "react": "^16.9.0",

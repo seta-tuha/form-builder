@@ -1,15 +1,18 @@
 import React from 'react';
-import TextField, {Input} from '@material/react-text-field';
 
-// import './style.css';
+import TextField, { Input } from '@material/react-text-field';
 
-export default function Paragraph({ name }) {
-    return (
-        <TextField 
-          className="configurationItem"
-          label='Field Name'
-          outlined='true'>
-          <Input name={name}/>
-        </TextField>
-      )
+export default function Paragraph({ name, label, value, onChange }) {
+  return (
+    <TextField
+      className="configurationItem"
+      label={label}
+      textarea
+    >
+      <Input
+        value={value}
+        onChange={(e) => onChange({ name, value: e.target.value })}
+      />
+    </TextField>
+  )
 }
