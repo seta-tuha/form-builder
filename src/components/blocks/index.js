@@ -1,40 +1,49 @@
 import React from 'react';
-import MaterialIcon from '@material/react-material-icon';
+import {
+  Title,
+  RadioButtonChecked,
+  CheckBoxOutlined,
+  CalendarToday,
+  StarBorderOutlined,
+  Notes
+} from '@material-ui/icons';
+
 import { useDrag } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import FormTypes from '../../FormTypes';
+
 import './Block.css';
 
 export const blockTypes = [
   {
     type: 'textInput',
     label: 'Input Text',
-    icon: 'title'
+    icon: <Title />
   },
   {
     type: 'paragraph',
     label: 'Paragraph',
-    icon: 'notes',
+    icon: <Notes />,
   },
   {
     type: 'radio',
     label: 'Radio',
-    icon: 'radio_button_checked'
+    icon: <RadioButtonChecked />
   },
   {
     type: 'checkBox',
     label: 'Checkbox',
-    icon: 'check_box'
+    icon: <CheckBoxOutlined />
   },
   {
     type: 'dateTime',
     label: 'Date Time',
-    icon: 'calendar_today'
+    icon: <CalendarToday />
   },
   {
     type: 'rating',
     label: 'Rating',
-    icon: 'star_border'
+    icon: <StarBorderOutlined />
   }
 ];
 
@@ -60,7 +69,7 @@ export default function Block({ type, label, icon, removeBlock }) {
   }, [])
   return (
     <div ref={drag} style={{ opacity }} className="block-container">
-      <MaterialIcon icon={icon} />
+      {icon}
       <p>{label}</p>
     </div>
   )

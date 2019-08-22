@@ -13,6 +13,7 @@
   justify-content: center;
   cursor: pointer;
   margin: 8px;
+  align-items: center;
 }
 
 .block-container > p {
