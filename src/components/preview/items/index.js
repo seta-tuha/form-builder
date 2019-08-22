@@ -1,6 +1,9 @@
-import React from 'react';
-import './style.css';
+import Checkbox from './Checkbox';
+import Paragraph from './Paragraph';
+import TextInput from './TextInput';
 
-export default function Item({ name, type }) {
-  return <div className="item-container">{name || type}</div>
+export default {
+  checkBox: Checkbox,
+  paragraph: Paragraph,
+  textInput: TextInput,
 }

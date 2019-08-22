@@ -2,7 +2,7 @@ import React from 'react';
 import Block, { blockTypes } from './components/blocks';
 import { useDrop } from 'react-dnd';
 import PreviewWrapper from './components/preview/PreviewWrapper';
-import BlockItem from './components/preview/items';
+import BlockItems from './components/preview/items';
 import FormSettings from './components/configuration';
 import FormTypes from './FormTypes';
 import './FormBuilder.css';
@@ -40,19 +40,23 @@ export default function FormBuilder({
       </div>
       <div className="form-preview-container" ref={drop}>
         {
-          form.definition.map((block, index) => (
-            <PreviewWrapper
-              index={index}
-              key={block.name}
-              addBlock={addBlock}
-              swapBlock={swapBlock}
-              updateBlock={updateBlock}
-              removeBlock={removeBlock}
-              selectBlock={selectBlock}
-            >
-              <BlockItem type={block.type} name={block.name} />
-            </PreviewWrapper>
-          ))
+          form.definition.map((block, index) => {
+          const BlockItem = BlockItems[block.type];
+          console.log(block);
+            return (
+              <PreviewWrapper
+                index={index}
+                key={block.name}
+                addBlock={addBlock}
+                swapBlock={swapBlock}
+                updateBlock={updateBlock}
+                removeBlock={removeBlock}
+                selectBlock={selectBlock}
+              >
+                <BlockItem block={block} name={block.name} />
+              </PreviewWrapper>
+            )
+          })
         }
       </div>
       <div className="form-configuration">
