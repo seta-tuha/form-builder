@@ -7,6 +7,7 @@ import Max from './Max';
 import Min from './Min';
 import Name from './Name';
 import Required from './Required';
+import './styles.css';
 
 export default {
   name: Name,

@@ -1,6 +1,6 @@
 export default {
   textInput: ['name', 'label', 'instruction', 'required'],
-  paragraph: ['name', 'label', 'instruction', 'required'],
+  paragraph: ['name', 'label', 'instruction', 'dateFormat', 'required'],
   radio: ['name', 'label', 'items', 'instruction', 'required'],
   checkBox: ['name', 'label', 'items', 'instruction', 'required'],
   dateTime: ['name', 'label', 'dateFormat', 'instruction', 'required', 'enableTimeOption'],
