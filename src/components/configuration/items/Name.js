@@ -1,14 +1,17 @@
 import React from 'react';
-import TextField, {Input} from '@material/react-text-field';
+import TextField from '@material-ui/core/TextField';
+
 const type = "name"
 
 export default function Name({ value, onChange }) {
   return (
-    <TextField 
-      className="configurationItem"
+    <TextField
       label='Field Name'
-      outlined='true'>
-      <Input value={value} onChange={(e) => onChange({ name: type, value: e.target.value })} />
-    </TextField>
+      variant="outlined"
+      classes={{root: "configuration-input"}}
+      fullWidth
+      value={value}
+      onChange={(e) => onChange({ name: type, value: e.target.value })}
+    />
   )
 }

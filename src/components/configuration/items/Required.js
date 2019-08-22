@@ -1,18 +1,20 @@
 import React from 'react';
-import Checkbox from '@material/react-checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+
 const type = "required"
 
 export default function Required({ value, onChange }) {
   return (
-    <div>
-      <div className="configurationItem" >
-        <Checkbox 
-        nativeControlId='required'
-        checked={value}
-        onChange={(e) => onChange({ name: type, value: e.target.checked })}
+    <FormControlLabel
+      control={
+        <Checkbox
+          color="primary"
+          checked={value}
+          onChange={e => onChange({ name: type, value: e.target.checked })}
         />
-        <label htmlFor='required'>Required</label>
-      </div>
-    </div>
+      }
+      label="Required"
+    />
   )
 }

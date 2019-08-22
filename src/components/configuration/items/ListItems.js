@@ -1,40 +1,11 @@
 import React from 'react';
-import TextField, { Input } from '@material/react-text-field';
-import MaterialIcon from '@material/react-material-icon';
 import useSortable from '../../../hooks/useSortable';
-import useForm from '../../../hooks/useForm';
+import TextField from '@material-ui/core/TextField';
+import { AddCircleOutline, DeleteOutlined, DragHandleOutlined } from '@material-ui/icons';
 
 const type = "items"
 
-export default function ListItems({ value, onChange }) { 
-  // const [
-  //   form,
-  //   addBlock,
-  //   swapBlock,
-  //   updateBlock,
-  //   removeBlock,
-  //   selectBlock
-  // ] = useForm(value);
-
-  // React.useEffect(() => {
-  //   onChange({ name: type, value: form.definition })
-  // }, [form])
-
-  // console.log('form item',form.definition)
-  // console.log(form.definition)
-  // const [
-  //   {
-  //     isDragging,
-  //     isHovered
-  //   },
-  //   drag,
-  //   preview,
-  //   drop,
-  // ] = useSortable();
-
-  // const onUpdateItem = React.useCallback(((index, value) => {
-  //   updateBlock
-  // }), [index])
+export default function ListItems({ value, onChange }) {
   const swapBlock = (from, to) => {
     onChange({ name: type, value: value.map((valueBlock, index) => {
       if (index === from) {
@@ -72,20 +43,20 @@ export default function ListItems({ value, onChange }) {
   }
 
   return (
-    <div>
+    <div className="list-items-container">
       <label>Field Items</label>
-      <div className="list-items">
+      <div>
         {
           value.map((block, index) => (
-            <Item 
-            key = {block.id}
-            block = {block}
-            index = {index} 
-            swapBlock = {swapBlock}
-            addBlock = {addBlock}
-            removeBlock = {removeBlock}
-            updateBlock = {updateBlock}
-            ></Item>
+            <Item
+              key = {block.id}
+              block = {block}
+              index = {index}
+              swapBlock = {swapBlock}
+              addBlock = {addBlock}
+              removeBlock = {removeBlock}
+              updateBlock = {updateBlock}
+            />
           ))
         }
 
@@ -99,7 +70,7 @@ const Item = function Item({
   index,
   swapBlock,
   addBlock,
-  removeBlock, 
+  removeBlock,
   updateBlock
 }) {
 
@@ -110,22 +81,20 @@ const Item = function Item({
     drop,
   ] = useSortable(index, type, addBlock, swapBlock);
 
-  // const addBlockCallback = React.useCallback(() => addBlock(index), [index]);
-
   return drop(
-    <div ref={preview} className="preview-container" style={(isDragging ) ? { opacity: 0 } : {}}>
+    <div ref={preview} className="item-container" style={(isDragging ) ? { opacity: 0 } : {}}>
       <TextField
-        className="configurationItem"
         label={`Option-${index + 1}`}
-        outlined='true'>
-        <Input value={block.value} onChange={(e) => updateBlock(index, e.target.value)}/>
-      </TextField>
+        variant="outlined"
+        value={block.value}
+        onChange={(e) => updateBlock(index, e.target.value)}
+        fullWidth
+      />
       <div ref={drag}>
-        <MaterialIcon icon='drag_handle' className="preview-icon" />
+        <DragHandleOutlined className="preview-icon" />
       </div>
-      <MaterialIcon icon='add_circle_outline' onClick={() => addBlock(index)} className="preview-icon" />
-      <MaterialIcon icon='delete_outline' onClick={() => removeBlock(index)} className="preview-icon" />
+      <AddCircleOutline onClick={() => addBlock(index)} className="preview-icon" />
+      <DeleteOutlined onClick={() => removeBlock(index)} className="preview-icon" />
     </div>
   )
-
 }

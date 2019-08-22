@@ -1,5 +1,18 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField';
 
-export default function Min({ value, onChange }) {
-  return <div>Min</div>
+const type = "min";
+
+export default function Label({ value, onChange }) {
+  return (
+    <TextField
+      label='Min value'
+      variant="outlined"
+      classes={{root: "configuration-input"}}
+      fullWidth
+      value={value}
+      type="number"
+      onChange={(e) => onChange({ name: type, value: e.target.value })}
+    />
+  )
 }

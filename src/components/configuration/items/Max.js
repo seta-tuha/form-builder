@@ -1,5 +1,18 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField';
 
-export default function Max({ value, onChange }) {
-  return <div>Max</div>
+const type = "max";
+
+export default function Label({ value, onChange }) {
+  return (
+    <TextField
+      label='Max value'
+      variant="outlined"
+      classes={{root: "configuration-input"}}
+      fullWidth
+      value={value}
+      type="number"
+      onChange={(e) => onChange({ name: type, value: e.target.value })}
+    />
+  )
 }
