@@ -14,6 +14,33 @@ import FormTypes from '../../FormTypes';
 
 import './Block.css';
 
+export const blockMaps = {
+  textInput: {
+    label: 'Input Text',
+    icon: <Title />
+  },
+  paragraph: {
+    label: 'Paragraph',
+    icon: <Notes />,
+  },
+  radio: {
+    label: 'Radio',
+    icon: <RadioButtonChecked />
+  },
+  checkBox: {
+    label: 'Checkbox',
+    icon: <CheckBoxOutlined />
+  },
+  dateTime: {
+    label: 'Date Time',
+    icon: <CalendarToday />
+  },
+  rating: {
+    label: 'Rating',
+    icon: <StarBorderOutlined />
+  }
+}
+
 export const blockTypes = [
   {
     type: 'textInput',
@@ -46,6 +73,15 @@ export const blockTypes = [
     icon: <StarBorderOutlined />
   }
 ];
+
+export function BlockPreview({ type }) {
+  return (
+    <div className="drag-preview-container">
+      {blockMaps[type].icon}
+      {blockMaps[type].label}
+    </div>
+  )
+}
 
 export default function Block({ type, label, icon, removeBlock }) {
   const [{ opacity }, drag, preview] = useDrag({

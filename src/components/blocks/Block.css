@@ -19,3 +19,15 @@
 .block-container > p {
   margin: 0;
 }
+
+.drag-preview-container {
+  padding-left: 16px;
+  height: 60px;
+  width: 200px;
+  border: 1px solid #5C636B;
+  border-radius: 4px;
+  color: #5C636B;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}

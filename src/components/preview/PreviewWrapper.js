@@ -60,7 +60,7 @@ export default function PreviewWrapper({
   ] = useSortable(index, FormTypes.type, addBlock, swapBlock);
 
   return drop(
-    <div ref={preview} className="preview-container" style={(isDragging || isHovered) ? { opacity: 0 } : {}}>
+    <div ref={preview} className="preview-container" style={(isDragging || isHovered) ? { opacity: 0, height: 60 } : {}}>
       {children}
       <div ref={drag}>
         <MaterialIcon icon='drag_handle' className="preview-icon" />
