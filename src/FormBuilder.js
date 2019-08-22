@@ -5,6 +5,7 @@ import PreviewWrapper from './components/preview/PreviewWrapper';
 import BlockItem from './components/preview/items';
 import FormSettings from './components/configuration';
 import FormTypes from './FormTypes';
+import { generateSchema } from './utils';
 import './FormBuilder.css';
 
 export default function FormBuilder({
@@ -54,6 +55,11 @@ export default function FormBuilder({
             </PreviewWrapper>
           ))
         }
+        <pre>
+          {
+            JSON.stringify(generateSchema(form.definition), null, 2)
+          }
+        </pre>
       </div>
       <div className="form-configuration">
         <FormSettings
