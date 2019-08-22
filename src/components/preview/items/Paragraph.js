@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MaterialIcon from '@material/react-material-icon';
+import { HelpOutline} from '@material-ui/icons';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
@@ -8,7 +8,7 @@ export default function Paragraph({ name, label, value, instruction, onChange })
   return (
     <div className="preview-paragraph">
         <h4>{label || name}
-            <MaterialIcon icon='help_outline' />
+            <HelpOutline className="help-icon" />
         </h4>
         <CKEditor
             editor={ ClassicEditor }

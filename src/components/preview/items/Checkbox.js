@@ -1,6 +1,5 @@
 import React from 'react';
-import TextField, { Input } from '@material/react-text-field';
-import CheckboxM from '@material/react-checkbox';
+import CheckboxM from '@material-ui/core/Checkbox';
 // import './style.css';
 
 export default function Checkbox({ label, required, name, onChange, instruction, value, items }) {
