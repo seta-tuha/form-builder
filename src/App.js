@@ -25,7 +25,21 @@ function App() {
     },
     {
       name: 'checkBox-3456',
-      type: 'checkBox'
+      type: 'checkBox',
+      items: [
+        {
+          value: 'option 1',
+          id: '1'
+        },
+        {
+          value: 'option 2',
+          id: '2'
+        },
+        {
+          value: 'option 3',
+          id: '3'
+        }
+      ]
     }
   ]);
   console.log(form.definition)

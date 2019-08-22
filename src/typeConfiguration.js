@@ -12,7 +12,9 @@ export const initData = {
   label: '',
   instruction: '',
   required: false,
-  items: [],
+  items: [{ value: '', id: (new Date()).getTime()}],
   dateFormat: 'dd-mm-yyyy',
-  enableTimeOption: true
+  enableTimeOption: true,
+  min: 0,
+  max: 5
 }

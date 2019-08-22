@@ -4,18 +4,18 @@ import typeConfiguration from '../../typeConfiguration';
 
 export default function Configuration({ type, onChange, ...data }) {
   return (
-    <>
+    <div>
       {
         typeConfiguration[type].map(configurationType => {
-          const ConfigurationCompoent = configurationComponents[configurationType];
+          const ConfigurationComponent = configurationComponents[configurationType];
           return (
-            <ConfigurationCompoent
+            <ConfigurationComponent
               key={configurationType}
               value={data[configurationType]}
               onChange={onChange}
             />);
         })
       }
-    </>
+    </div>
   )
 }
