@@ -8,3 +8,11 @@
   margin: 0 0 0 8px;
   cursor: pointer;
 }
+
+.preview-container .preview-paragraph .material-icons{
+  font-size: 14px;
+}
+.preview-container .item-checkbox{
+  display: flex;
+  align-items: center;
+}

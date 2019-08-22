@@ -7,6 +7,7 @@ import FormSettings from './components/configuration';
 import FormTypes from './FormTypes';
 import { generateSchema, generateState } from './utils';
 import './FormBuilder.css';
+import { AST_DefClass } from 'terser';
 
 export default function FormBuilder({
   form,
@@ -42,7 +43,9 @@ export default function FormBuilder({
       <div className="form-preview-container" ref={drop}>
         {
           form.definition.map((block, index) => {
+            console.log(block)
           const BlockItem = BlockItems[block.type];
+          console.log(BlockItem)
             return (
               <PreviewWrapper
                 index={index}
