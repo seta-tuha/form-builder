@@ -15,6 +15,7 @@ export default function DateTime({ enableTimeSelect, value, onChange, name, form
       <TimePicker
         inputVariant="outlined"
         value={value}
+        fullWidth
       />
     </MuiPickersUtilsProvider>
   )

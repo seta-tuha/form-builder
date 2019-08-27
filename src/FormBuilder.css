@@ -1,9 +1,17 @@
 .form-builder {
   display: flex;
+  margin: auto;
+  max-width: 1200px;;
+  width: 100%;
+}
+
+.blocks-wrapper {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
 }
 
 .form-preview-container {
-  width: 60%;
   min-width: 500px;
 }
 .form-configuration{

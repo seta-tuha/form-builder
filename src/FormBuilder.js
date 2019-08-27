@@ -5,7 +5,8 @@ import PreviewWrapper from './components/preview/PreviewWrapper';
 import BlockItems from './components/preview/items';
 import FormSettings from './components/configuration';
 import FormTypes from './FormTypes';
-import { generateSchema, generateState } from './utils';
+import { generateSchema } from './utils';
+import Grid from '@material-ui/core/Grid';
 import isEqual from 'lodash.isequal';
 import './FormBuilder.css';
 
@@ -39,42 +40,48 @@ export default React.memo(function FormBuilder({
 
   return (
     <div className="form-builder">
-      <div>
-        {
-          blockTypes.map(block => <Block key={block.type} {...block} removeBlock={removeBlock} />)
-        }
-      </div>
-      <div className="form-preview-container" ref={drop}>
-        {
-          form.definition.map((block, index) => {
-            const BlockItem = BlockItems[block.type];
-            return (
-              <PreviewWrapper
-                index={index}
-                key={block.name}
-                addBlock={addBlock}
-                swapBlock={swapBlock}
-                updateBlock={updateBlock}
-                removeBlock={removeBlock}
-                selectBlock={selectBlock}
-              >
-                <BlockItem {...block} />
-              </PreviewWrapper>
-            )
-          })
-        }
-        <pre>
-          {
-            JSON.stringify(generateSchema(form.definition), null, 2)
-          }
-        </pre>
-      </div>
-      <div className="form-configuration">
-        <FormSettings
-          onChange={onUpdateForm}
-          {...form.definition[form.selected]}
-        />
-      </div>
+      <Grid container spacing={3}>
+        <Grid item xs>
+          <div className="blocks-wrapper">
+            {
+              blockTypes.map(block => <Block key={block.type} {...block} removeBlock={removeBlock} />)
+            }
+          </div>
+        </Grid>
+        <Grid item xs={5}>
+          <div ref={drop}>
+            {
+              form.definition.map((block, index) => {
+                const BlockItem = BlockItems[block.type];
+                return (
+                  <PreviewWrapper
+                    index={index}
+                    key={block.name}
+                    addBlock={addBlock}
+                    swapBlock={swapBlock}
+                    updateBlock={updateBlock}
+                    removeBlock={removeBlock}
+                    selectBlock={selectBlock}
+                  >
+                    <BlockItem {...block} />
+                  </PreviewWrapper>
+                )
+              })
+            }
+            <pre>
+              {
+                JSON.stringify(generateSchema(form.definition), null, 2)
+              }
+            </pre>
+          </div>
+        </Grid>
+        <Grid item xs={3}>
+          <FormSettings
+            onChange={onUpdateForm}
+            {...form.definition[form.selected]}
+          />
+        </Grid>
+      </Grid>
     </div>
   )
 }, formEqual);

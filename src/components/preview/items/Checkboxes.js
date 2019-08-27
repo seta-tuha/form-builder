@@ -1,15 +1,21 @@
 import React from 'react';
 import FormGroup from '@material-ui/core/FormGroup';
-import FormControl from '@material-ui/core/FormControl';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
 
 export default function Checkboxes({ label, required, name, onChange, instruction, value, items }) {
   return (
-    <FormControl component="fieldset" className="margin-tl-15">
-      <FormLabel component="label">{label || name}</FormLabel>
+    <Box
+      component="fieldset"
+      className="margin-tl-15"
+      borderColor="primary"
+      borderRadius={5}
+      css={{flex: 1}}
+    >
+      <Typography component="legend">{label || name}</Typography>
       <FormGroup>
         {
           items.map((item) => {
@@ -27,7 +33,7 @@ export default function Checkboxes({ label, required, name, onChange, instructio
           })
         }
       </FormGroup>
-    </FormControl>
+    </Box>
   )
 }
 
