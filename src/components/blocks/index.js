@@ -8,6 +8,7 @@ import {
   Notes
 } from '@material-ui/icons';
 import MenuIcon from '@material-ui/icons/Menu';
+import EditAttributesIcon from '@material-ui/icons/EditAttributes';
 import { useDrag } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import FormTypes from '../../FormTypes';
@@ -42,6 +43,10 @@ export const blockMaps = {
   select: {
     label: 'Select',
     icon: <MenuIcon />
+  },
+  switch: {
+    label: 'Switch',
+    icon: <EditAttributesIcon />
   }
 }
 
@@ -80,6 +85,11 @@ export const blockTypes = [
     type: 'select',
     label: 'Select',
     icon: <MenuIcon />
+  },
+  {
+    type: 'switch',
+    label: 'Switch',
+    icon: <EditAttributesIcon />
   }
 ];
 

@@ -2,6 +2,9 @@
   display: flex;
   align-items: center;
   margin: 8px;
+  width: 60%;
+  padding: 10px;
+  border: 1px dashed #a5a5a5;
 }
 
 .preview-icon {
@@ -9,13 +12,24 @@
   cursor: pointer;
 }
 
-.preview-container .help-icon{
+.preview-container .help-icon {
   font-size: 14px;
 }
-.preview-container .item-checkbox{
+
+.preview-container .item-checkbox {
   display: flex;
   align-items: center;
 }
-.margin-tl-15{
+
+.margin-tb-15 {
   margin: 15px 0 !important;
+}
+
+.preview-content {
+  width: 80% !important;
+}
+
+.preview-action {
+  display: flex;
+  margin-left: 20px;
 }

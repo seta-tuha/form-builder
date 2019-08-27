@@ -5,6 +5,7 @@ import DateTime from './DateTime';
 import Rating from './Rating';
 import Radio from './Radio';
 import Select from './Select';
+import Switch from './Switch';
 
 export default {
   checkBox: Checkbox,
@@ -13,5 +14,6 @@ export default {
   dateTime: DateTime,
   rating: Rating,
   radio: Radio,
-  select: Select
+  select: Select,
+  switch: Switch
 }
