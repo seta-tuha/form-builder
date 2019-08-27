@@ -4,7 +4,11 @@ import HTML5Backend from 'react-dnd-html5-backend'
 import DragLayer from './components/DragLayer';
 
 import FormBuilder from './FormBuilder';
+import OutlinedWrapper from './components/OutlinedWrapper';
 import useForm from './hooks/useForm';
+
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
 
 function App() {
   const [
@@ -42,7 +46,6 @@ function App() {
       ]
     }
   ]);
-  console.log(form.definition)
   return (
     <DndProvider backend={HTML5Backend}>
       <DragLayer />
@@ -54,6 +57,10 @@ function App() {
         removeBlock={removeBlock}
         selectBlock={selectBlock}
       />
+      <OutlinedWrapper />
+      <FormControl variant="outlined">
+        <InputLabel>aaaa</InputLabel>
+      </FormControl>
     </DndProvider>
   );
 }

@@ -44,7 +44,6 @@ const CustomDragLayer = props => {
     switch (itemType) {
       case FormTypes.type:
         if (item.isBlock) {
-          // const BlockPreview = blockPreview[item.id];
           return <BlockPreview type={item.id} />
         }
         return null;

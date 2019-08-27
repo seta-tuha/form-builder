@@ -47,9 +47,7 @@ export default React.memo(function FormBuilder({
       <div className="form-preview-container" ref={drop}>
         {
           form.definition.map((block, index) => {
-            console.log(block)
-          const BlockItem = BlockItems[block.type];
-          console.log(BlockItem)
+            const BlockItem = BlockItems[block.type];
             return (
               <PreviewWrapper
                 index={index}

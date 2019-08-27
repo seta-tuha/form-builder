@@ -1,12 +1,12 @@
 import React from 'react';
-import FormGroup from '@material-ui/core/FormGroup';
+import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
 
 export default function Checkboxes({ label, required, name, onChange, instruction, value, items }) {
   return (
-    <FormGroup>
+    <FormControl variant="outlined" >
       {
         items.map((item) => {
           return (
@@ -22,7 +22,7 @@ export default function Checkboxes({ label, required, name, onChange, instructio
           )
         })
       }
-    </FormGroup>
+    </FormControl>
   )
 }
 
