@@ -16,6 +16,7 @@
     "@material/react-radio": "^0.15.0",
     "@material/react-select": "^0.15.0",
     "@material/react-text-field": "^0.15.0",
+    "classnames": "^2.2.6",
     "date-fns": "^2.0.1",
     "lodash.isequal": "^4.5.0",
     "react": "^16.9.0",

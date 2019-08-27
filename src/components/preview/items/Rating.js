@@ -5,7 +5,17 @@ import Box from '@material-ui/core/Box';
 import Tooltip from '@material-ui/core/Tooltip';
 import { HelpOutline } from '@material-ui/icons';
 
-export default function Rating({ label, required, name, onChange, instruction, min, max, value }) {
+
+export default function Rating({
+  label,
+  required,
+  name,
+  onChange,
+  instruction,
+  min,
+  max,
+  value
+}) {
   const fieldLabel = required ? `${label || name}*` : label || name;
   const maxValue = max ? parseInt(max) : 0;
 

@@ -61,7 +61,7 @@ function formReducer(state, action) {
       const type = action.payload.blockType;
       const name = `${type}-${(new Date()).getTime()}`;
       return {
-        ...state,
+        selected: action.payload.position <= state.selected ? state.selected + 1 : state.selected,
         definition: [
           ...state.definition.slice(0, action.payload.position),
           typeConfiguration[type].slice(1).reduce((data, type) => ({
@@ -75,7 +75,7 @@ function formReducer(state, action) {
     case SWAP_BLOCK: {
       const { from, to } = action.payload;
       return {
-        ...state,
+        selected: state.selected === from ? to : state.selected === to ? from : state.selected,
         definition: state.definition.map((block, index) => {
           if (index === from) {
             return state.definition[to];
@@ -100,8 +100,8 @@ function formReducer(state, action) {
 
     case REMOVE_BLOCK:
       return {
-        ...state,
-        definition: state.definition.filter((data, index) => index !== action.payload.index)
+        selected: state.selected > action.payload.index ? state.selected - 1 : state.selected,
+        definition: state.definition.filter((_, index) => index !== action.payload.index)
       };
     case SELECT_BLOCK:
       return {

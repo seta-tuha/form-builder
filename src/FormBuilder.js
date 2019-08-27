@@ -8,6 +8,8 @@ import FormTypes from './FormTypes';
 import { generateSchema } from './utils';
 import Grid from '@material-ui/core/Grid';
 import isEqual from 'lodash.isequal';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 import './FormBuilder.css';
 
 function formEqual({ form }, { form: nextForm }) {
@@ -23,7 +25,9 @@ export default React.memo(function FormBuilder({
   selectBlock
 }) {
 
-  const [_, drop] = useDrop({
+  const [isPreview, setIsPreview] = React.useState(true);
+
+  const [, drop] = useDrop({
     accept: FormTypes.type,
     drop: (item) => {
       if (isNaN(item.index) && form.definition.length === 0) {
@@ -47,8 +51,19 @@ export default React.memo(function FormBuilder({
               blockTypes.map(block => <Block key={block.type} {...block} removeBlock={removeBlock} />)
             }
           </div>
+          <hr />
+          <FormControlLabel
+            control={
+              <Switch
+                checked={isPreview}
+                onChange={() => setIsPreview(x => !x)}
+                value="Preview"
+              />
+            }
+            label="Preview"
+          />
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={6}>
           <div ref={drop}>
             {
               form.definition.map((block, index) => {
@@ -56,6 +71,8 @@ export default React.memo(function FormBuilder({
                 return (
                   <PreviewWrapper
                     index={index}
+                    selected={index === form.selected}
+                    isPreview={isPreview}
                     key={block.name}
                     addBlock={addBlock}
                     swapBlock={swapBlock}
@@ -68,11 +85,15 @@ export default React.memo(function FormBuilder({
                 )
               })
             }
-            <pre>
-              {
-                JSON.stringify(generateSchema(form.definition), null, 2)
-              }
-            </pre>
+            {
+              isPreview && (
+                <pre>
+                  {
+                    JSON.stringify(generateSchema(form.definition), null, 2)
+                  }
+                </pre>
+              )
+            }
           </div>
         </Grid>
         <Grid item xs={3}>

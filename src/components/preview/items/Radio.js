@@ -5,8 +5,15 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Radio from '@material-ui/core/Radio';
 
-
-export default function Checkboxes({ label, required, name, onChange, instruction, value, items }) {
+export default function Checkboxes({
+  label,
+  required,
+  name,
+  onChange,
+  instruction,
+  value,
+  items
+}) {
   return (
     <Box
       component="fieldset"
@@ -40,4 +47,4 @@ export default function Checkboxes({ label, required, name, onChange, instructio
 
 Checkboxes.defaultProps = {
   value: []
-}
+};
