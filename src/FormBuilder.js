@@ -6,10 +6,14 @@ import BlockItems from './components/preview/items';
 import FormSettings from './components/configuration';
 import FormTypes from './FormTypes';
 import { generateSchema, generateState } from './utils';
+import isEqual from 'lodash.isequal';
 import './FormBuilder.css';
-import { AST_DefClass } from 'terser';
 
-export default function FormBuilder({
+function formEqual({ form }, { form: nextForm }) {
+  return isEqual(form, nextForm)
+}
+
+export default React.memo(function FormBuilder({
   form,
   addBlock,
   swapBlock,
@@ -75,4 +79,4 @@ export default function FormBuilder({
       </div>
     </div>
   )
-}
+}, formEqual);

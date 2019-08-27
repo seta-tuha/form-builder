@@ -6,7 +6,7 @@ export default function TextInput({ label, required, name, onChange, instruction
     const helperText = instruction ? instruction : ''
     return (
       <div className="item-container">
-        <TextField 
+        <TextField
           className="configurationItem"
           label={fieldLabel}
           helperText = {helperText}
@@ -15,6 +15,5 @@ export default function TextInput({ label, required, name, onChange, instruction
           onChange={(e) => onChange({ name, value: e.target.value })}>
         </TextField>
       </div>
-        
-      )
+  )
 }
