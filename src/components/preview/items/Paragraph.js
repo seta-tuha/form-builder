@@ -3,12 +3,16 @@ import React from 'react';
 import { HelpOutline} from '@material-ui/icons';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Tooltip from '@material-ui/core/Tooltip';
 
 export default function Paragraph({ name, label, value, instruction, onChange }) {
   return (
     <div className="preview-paragraph">
         <h4>{label || name}
+        <Tooltip title={instruction || name}>
             <HelpOutline className="help-icon" />
+        </Tooltip>
+            
         </h4>
         <CKEditor
             editor={ ClassicEditor }

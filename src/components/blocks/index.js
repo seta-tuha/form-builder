@@ -7,7 +7,7 @@ import {
   StarBorderOutlined,
   Notes
 } from '@material-ui/icons';
-
+import MenuIcon from '@material-ui/icons/Menu';
 import { useDrag } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import FormTypes from '../../FormTypes';
@@ -38,6 +38,10 @@ export const blockMaps = {
   rating: {
     label: 'Rating',
     icon: <StarBorderOutlined />
+  },
+  select: {
+    label: 'Select',
+    icon: <MenuIcon />
   }
 }
 
@@ -71,6 +75,11 @@ export const blockTypes = [
     type: 'rating',
     label: 'Rating',
     icon: <StarBorderOutlined />
+  },
+  {
+    type: 'select',
+    label: 'Select',
+    icon: <MenuIcon />
   }
 ];
 

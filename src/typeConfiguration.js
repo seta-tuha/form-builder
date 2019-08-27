@@ -5,6 +5,7 @@ export default {
   checkBox: ['name', 'label', 'items', 'instruction', 'required'],
   dateTime: ['name', 'label', 'dateFormat', 'instruction', 'required', 'enableTimeOption'],
   rating: ['name', 'label', 'min', 'max', 'instruction', 'required'],
+  select: ['name', 'label', 'items', 'instruction', 'required']
 };
 
 export const initData = {
@@ -12,7 +13,7 @@ export const initData = {
   label: '',
   instruction: '',
   required: false,
-  items: [{ value: '', id: (new Date()).getTime()}],
+  items: [{ value: 'option 1', id: (new Date()).getTime()}],
   dateFormat: 'dd-mm-yyyy',
   enableTimeOption: true,
   min: 0,
