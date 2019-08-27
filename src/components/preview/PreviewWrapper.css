@@ -9,10 +9,13 @@
   cursor: pointer;
 }
 
-.preview-container .preview-paragraph .help-icon{
+.preview-container .help-icon{
   font-size: 14px;
 }
 .preview-container .item-checkbox{
   display: flex;
   align-items: center;
+}
+.margin-tl-15{
+  margin: 15px 0 !important;
 }

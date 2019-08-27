@@ -67,6 +67,7 @@ export const mapSchema = {
   paragraph: stringSchema,
   checkBox: arraySchema,
   switch: booleanSchema,
+  select: stringSchema
 }
 
 export const formDefaultValue = {
@@ -77,5 +78,6 @@ export const formDefaultValue = {
   switch: false,
   checkBox: '',
   ip: '',
-  geoPoint: ''
+  geoPoint: '',
+  select: ''
 }
