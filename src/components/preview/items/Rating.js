@@ -4,6 +4,7 @@ import MuiRating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import Tooltip from '@material-ui/core/Tooltip';
 import { HelpOutline } from '@material-ui/icons';
+import FormGroup from '@material-ui/core/FormGroup';
 
 
 export default function Rating({
@@ -20,18 +21,20 @@ export default function Rating({
   const maxValue = max ? parseInt(max) : 0;
 
   return (
-    <Box mb={3} borderColor="transparent">
-      <Typography component="legend">{fieldLabel}
-        <Tooltip title={instruction || name}>
-          <HelpOutline className="help-icon" />
-        </Tooltip>
-      </Typography>
-      <MuiRating
-        name="simple-controlled"
-        value={value}
-        max={maxValue}
-        onChange={(e) => onChange({ name, value: e.target.value })}
-      />
-    </Box>
+    <FormGroup>
+      <Box mb={3} borderColor="transparent">
+        <Typography component="legend">{fieldLabel}
+          <Tooltip title={instruction || name}>
+            <HelpOutline className="help-icon" />
+          </Tooltip>
+        </Typography>
+        <MuiRating
+          name="simple-controlled"
+          value={value}
+          max={maxValue}
+          onChange={(e) => onChange({ name, value: e.target.value })}
+        />
+      </Box>
+    </FormGroup>
   )
 }

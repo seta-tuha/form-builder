@@ -14,6 +14,15 @@ export default function Checkboxes({
   value,
   items
 }) {
+
+  const handle = (e) => {
+    let itemCheck = value.findIndex(itemValue => itemValue === e.target.value);
+    if(itemCheck >= 0){
+      onChange({name, value: value.filter(itemValue => itemValue !== e.target.value)})
+    }else{
+      onChange({name, value:  [...value, e.target.value]})
+    }
+  }
   return (
     <Box
       component="fieldset"
@@ -33,8 +42,9 @@ export default function Checkboxes({
                 <Checkbox
                   value={item.value}
                   checked={
-                    value.findIndex(itemValue => itemValue === item.value) > 0
+                    value.findIndex(itemValue => itemValue === item.value) >= 0
                   }
+                  onChange={handle}
                 />
               }
               label={item.value}
@@ -49,3 +59,4 @@ export default function Checkboxes({
 Checkboxes.defaultProps = {
   value: []
 };
+// onChange({ name, value: e.target.value })

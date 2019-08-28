@@ -3,9 +3,9 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 
 const dateFormats = [
-  'dd-mm-yyyy',
-  'mm-dd-yyyy',
-  'yyyy-mm-dd'
+  'dd-MM-yyyy',
+  'MM-dd-yyyy',
+  'yyyy-MM-dd'
 ];
 
 const type = 'dateFormat';

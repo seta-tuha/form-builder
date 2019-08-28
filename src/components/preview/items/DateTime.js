@@ -6,22 +6,27 @@ import {
   DatePicker,
   DateTimePicker
 } from "@material-ui/pickers";
+import FormGroup from '@material-ui/core/FormGroup';
 
 export default function DateTime({
   enableTimeSelect,
   value,
   onChange,
   name,
-  format
+  dateFormat
 }) {
   const TimePicker = enableTimeSelect ? DateTimePicker : DatePicker;
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <TimePicker
-        inputVariant="outlined"
-        value={value}
-        fullWidth
-      />
-    </MuiPickersUtilsProvider>
+    <FormGroup>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <TimePicker
+          inputVariant="outlined"
+          value={value}
+          fullWidth
+          format={dateFormat}
+          onChange={(date) => onChange({ name, value: date})}
+        />
+      </MuiPickersUtilsProvider>
+    </FormGroup>
   )
 }

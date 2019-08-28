@@ -15,7 +15,7 @@ export const initData = {
   instruction: '',
   required: false,
   items: [{ value: 'option 1', id: (new Date()).getTime()}],
-  dateFormat: 'dd-mm-yyyy',
+  dateFormat: 'dd-MM-yyyy',
   enableTimeOption: true,
   min: 0,
   max: 5

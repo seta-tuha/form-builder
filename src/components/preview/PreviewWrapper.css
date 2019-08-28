@@ -35,3 +35,15 @@
   display: flex;
   margin-left: 20px;
 }
+
+.dialog-footer{
+  margin: 15px;
+}
+
+.item-preview{
+  margin-bottom: 20px;
+}
+
+.title-paragraph{
+  margin-top: 0;
+}

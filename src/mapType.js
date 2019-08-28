@@ -76,8 +76,9 @@ export const formDefaultValue = {
   radio: '',
   dateTime: new Date(),
   switch: false,
-  checkBox: '',
+  checkBox: [],
   ip: '',
   geoPoint: '',
-  select: ''
+  select: '',
+  paragraph: ''
 }

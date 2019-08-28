@@ -14,16 +14,15 @@ export default function Switch({
 }) {
   const fieldLabel = required ? `${label || name}*` : label || name;
   const helperText = instruction ? instruction : "";
-  const handleChange = function(e) {
-    onChange({ name, value: e.target.value });
-  };
+
+  console.log('value',value)
   return (
-    <FormGroup className="margin-tb-15">
+    <FormGroup>
       <FormControlLabel
         control={
           <MuiSwitch
             checked={value}
-            onChange={handleChange}
+            onChange={e => onChange({ name, value: e.target.checked })}
             value={value}
             color="primary"
           />
